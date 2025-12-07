@@ -1,0 +1,294 @@
+/* @theme seminar */
+@import 'default';
+
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1p');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap');
+
+@font-face {
+  font-family: JuliaMono;
+  src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono.woff2");
+}
+
+/* ---------------------- 変数と基本設定 ---------------------- */
+:root {
+  --black: #000009;
+  --white: #ffffff;
+  --gray: #808080;
+  --first: SteelBlue;
+  --second: #ff9800;
+}
+
+html {
+  font-size: 60%;
+}
+
+section {
+  font-family: 'M PLUS 1p';
+  color: var(--black);
+}
+
+code {
+  font-family: JuliaMono !important;
+  font-size: 0.8em !important;
+}
+
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ---------------------- ページナビ・ヘッダー・フッター ---------------------- */
+section::after {
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+}
+
+header {
+  font-family: 'M PLUS 1p';
+  font-weight: bold;
+  font-size: 1.5em;
+  color: var(--first);
+  top: 30px;
+  border-bottom: 5px dotted;
+}
+
+.section {
+  position: absolute;
+  font-size: 0.8em;
+  color: var(--first);
+  top: 30px;
+  right: 30px;
+  border-bottom: 2px solid var(--first);
+}
+
+.cite {
+  position: absolute;
+  bottom: 30px;
+  font-size: 50%;
+  border-top: solid 1px #7f7f7f;
+  padding-top: 10px;
+}
+
+/* ---------------------- リードスライド・見出し ---------------------- */
+h1 {
+  color: black;
+  margin: 0;
+  padding: 0;
+  font-size: 2.5em;
+}
+
+section.lead {
+  color: var(--first);
+}
+
+section.lead h1 {
+  font-size: 2.5em;
+  font-weight: normal;
+  color: var(--first);
+}
+
+section.lead h2 {
+  font-size: 1em;
+  margin-top: 0.05em;
+  font-weight: bold;
+}
+
+section.lead p {
+  text-align: right;
+}
+
+/* ---------------------- ボックス装飾 ---------------------- */
+.def,
+.proof,
+.thm,
+.box {
+  padding: 0px 50px 20px 50px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
+
+.def {
+  background-color: #e0f2f1;
+}
+
+.proof {
+  background-color: rgba(249, 174, 213, 0.196);
+}
+
+.thm {
+  background-color: rgba(174, 249, 174, 0.243);
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.243);
+}
+
+/* ---------------------- 色・装飾付きテキスト ---------------------- */
+.red,
+.green,
+.gray {
+  font-weight: bold;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.green {
+  color: #61bb61;
+}
+
+.gray {
+  color: #808080a5;
+}
+
+.orangelined {
+  background: linear-gradient(transparent 70%, rgba(255, 165, 0, 0.6) 0) no-repeat;
+  display: inline;
+}
+
+.bluelined {
+  background: #a1d6e89c;
+  display: inline;
+  padding: 0px 10px;
+}
+
+.dot-text {
+  -webkit-text-emphasis: filled;
+  text-emphasis: filled;
+  -webkit-text-emphasis-color: #ff9800;
+  text-emphasis-color: #ff9800;
+  -webkit-text-emphasis-style: circle;
+  text-emphasis-style: circle;
+  font-weight: bold;
+}
+
+/* ---------------------- レイアウト ---------------------- */
+.center {
+  text-align: center;
+}
+
+.columns,
+.columns-3,
+.columns-4,
+.columns-1-2,
+.columns-2-1,
+.columns-1-1-2,
+.columns-2-1-1 {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.columns-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.columns-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.columns-1-2 {
+  grid-template-columns: 1fr 2fr;
+}
+
+.columns-2-1 {
+  grid-template-columns: 2fr 1fr;
+}
+
+.columns-1-1-2 {
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
+.columns-2-1-1 {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+/* ---------------------- 目次（TOC） ---------------------- */
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 0 0 1000px #f0f8ff;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.toc .toc-sec {
+  flex: 1 1 calc(30% - 40px);
+  min-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f0f8ff;
+  margin: 10px;
+}
+
+.toc .secname {
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.toc .content {
+  font-size: 0.7em;
+  text-align: left;
+}
+
+.toc .content ul,
+.toc-sec ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.toc .content ul li::before,
+.toc-sec ul li::before {
+  content: "▶︎ ";
+  font-size: 0.5em;
+  margin-right: 5px;
+}
+
+.toc-sec .secname {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.toc-sec .content {
+  font-size: 1.2em;
+  text-align: left;
+}
+
+/* ---------------------- コード + キャプション ---------------------- */
+.code-with-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-with-caption .code {
+  margin: 0;
+  padding: 0;
+}
+
+.code-with-caption .caption {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #777;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------------- テーブル ---------------------- */
+.empty-table {
+  border-collapse: collapse;
+  border: none;
+}
