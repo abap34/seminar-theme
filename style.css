@@ -9,27 +9,33 @@
   src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono.woff2");
 }
 
-/* ---------------------- 変数と基本設定 ---------------------- */
 :root {
   --black: #000009;
   --white: #ffffff;
   --gray: #808080;
   --first: SteelBlue;
   --second: #ff9800;
-}
-
-html {
-  font-size: 60%;
+  --base-font-size: 22px;
+  --font-size-h1: 2.5em;
+  --font-size-header: 1.5em;
+  --font-size-small: 0.8em;
+  --font-size-tiny: 0.7em;
+  --font-size-lead-h2: 1em;
+  --font-size-cite: 0.5em;
+  --font-size-toc-secname: 0.85em;
+  --font-size-toc-sec-secname: 1.4em;
+  --font-size-toc-sec-content: 1.2em;
 }
 
 section {
   font-family: 'M PLUS 1p';
   color: var(--black);
+  font-size: var(--base-font-size);
 }
 
 code {
-  font-family: JuliaMono !important;
-  font-size: 0.8em !important;
+  font-family: JuliaMono;
+  font-size: var(--font-size-small);
 }
 
 img[alt~="center"] {
@@ -37,7 +43,6 @@ img[alt~="center"] {
   margin: 0 auto;
 }
 
-/* ---------------------- ページナビ・ヘッダー・フッター ---------------------- */
 section::after {
   content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
 }
@@ -45,7 +50,7 @@ section::after {
 header {
   font-family: 'M PLUS 1p';
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: var(--font-size-header);
   color: var(--first);
   top: 30px;
   border-bottom: 5px dotted;
@@ -53,7 +58,7 @@ header {
 
 .section {
   position: absolute;
-  font-size: 0.8em;
+  font-size: var(--font-size-small);
   color: var(--first);
   top: 30px;
   right: 30px;
@@ -63,17 +68,16 @@ header {
 .cite {
   position: absolute;
   bottom: 30px;
-  font-size: 50%;
+  font-size: var(--font-size-cite);
   border-top: solid 1px #7f7f7f;
   padding-top: 10px;
 }
 
-/* ---------------------- リードスライド・見出し ---------------------- */
 h1 {
   color: black;
   margin: 0;
   padding: 0;
-  font-size: 2.5em;
+  font-size: var(--font-size-h1);
 }
 
 section.lead {
@@ -81,13 +85,13 @@ section.lead {
 }
 
 section.lead h1 {
-  font-size: 2.5em;
+  font-size: var(--font-size-h1);
   font-weight: normal;
   color: var(--first);
 }
 
 section.lead h2 {
-  font-size: 1em;
+  font-size: var(--font-size-lead-h2);
   margin-top: 0.05em;
   font-weight: bold;
 }
@@ -96,7 +100,6 @@ section.lead p {
   text-align: right;
 }
 
-/* ---------------------- ボックス装飾 ---------------------- */
 .def,
 .proof,
 .thm,
@@ -123,7 +126,6 @@ section.lead p {
   background-color: rgba(255, 255, 255, 0.243);
 }
 
-/* ---------------------- 色・装飾付きテキスト ---------------------- */
 .red,
 .green,
 .gray {
@@ -165,7 +167,6 @@ section.lead p {
   font-weight: bold;
 }
 
-/* ---------------------- レイアウト ---------------------- */
 .center {
   text-align: center;
 }
@@ -210,7 +211,6 @@ section.lead p {
   grid-template-columns: 2fr 1fr 1fr;
 }
 
-/* ---------------------- 目次（TOC） ---------------------- */
 .toc {
   display: flex;
   flex-wrap: wrap;
@@ -233,12 +233,12 @@ section.lead p {
 }
 
 .toc .secname {
-  font-size: 0.85em;
+  font-size: var(--font-size-toc-secname);
   font-weight: bold;
 }
 
 .toc .content {
-  font-size: 0.7em;
+  font-size: var(--font-size-tiny);
   text-align: left;
 }
 
@@ -251,21 +251,20 @@ section.lead p {
 .toc .content ul li::before,
 .toc-sec ul li::before {
   content: "▶︎ ";
-  font-size: 0.5em;
+  font-size: var(--font-size-cite);
   margin-right: 5px;
 }
 
 .toc-sec .secname {
-  font-size: 1.4em;
+  font-size: var(--font-size-toc-sec-secname);
   font-weight: bold;
 }
 
 .toc-sec .content {
-  font-size: 1.2em;
+  font-size: var(--font-size-toc-sec-content);
   text-align: left;
 }
 
-/* ---------------------- コード + キャプション ---------------------- */
 .code-with-caption {
   display: flex;
   flex-direction: column;
@@ -279,7 +278,7 @@ section.lead p {
 }
 
 .code-with-caption .caption {
-  font-size: 0.8em;
+  font-size: var(--font-size-small);
   font-weight: bold;
   color: #777;
   text-align: center;
@@ -287,7 +286,6 @@ section.lead p {
   padding: 0;
 }
 
-/* ---------------------- テーブル ---------------------- */
 .empty-table {
   border-collapse: collapse;
   border: none;
